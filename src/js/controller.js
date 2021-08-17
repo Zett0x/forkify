@@ -106,6 +106,7 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
+    console.log('entra dentro');
     //Show loading spinner
     addRecipeView.renderSpinner();
     //Upload the new recipe data
@@ -116,6 +117,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     //Success message
+
     addRecipeView.renderMessage();
 
     //Render the bookmark view
