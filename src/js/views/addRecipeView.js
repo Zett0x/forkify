@@ -1,5 +1,5 @@
 import View from './View';
-import icons from 'url:../../img/icons.svg';
+//simport icons from 'url:../../img/icons.svg';
 
 class AddRecipeView extends View {
   _parentElement = document.querySelector('.upload');
@@ -8,7 +8,7 @@ class AddRecipeView extends View {
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
-  _left = false;
+  // _left = false; Implementar mas adelante
 
   constructor() {
     super();
@@ -16,7 +16,8 @@ class AddRecipeView extends View {
     this._addHandlerHideWindow();
   }
   toggleWindow() {
-    this._generateForm();
+    this._renderForm();
+
     this._overlay.classList.toggle('hidden');
     this._window.classList.toggle('hidden');
   }
@@ -39,9 +40,8 @@ class AddRecipeView extends View {
       handler(data);
     });
   }
-  _generateForm() {
-    this._parentElement.innerHTML = '';
-    const markupForm = `
+  _generateMarkup() {
+    return ` 
     <div class="upload__column">
       <h3 class="upload__heading">Recipe data</h3>
       <label>Title</label>
@@ -109,7 +109,13 @@ class AddRecipeView extends View {
       <span>Upload</span>
     </button>
   `;
-    this._parentElement.insertAdjacentHTML('afterbegin', markupForm);
+  }
+  _renderForm() {
+    this._clear();
+    this._parentElement.insertAdjacentHTML(
+      'afterbegin',
+      this._generateMarkup()
+    );
   }
 }
 export default new AddRecipeView();
