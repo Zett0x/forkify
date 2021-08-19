@@ -1,6 +1,7 @@
 import icons from 'url:../../img/icons.svg';
 export default class View {
   _data;
+  _forkifyIcon = document.querySelector('.header__logo');
   render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
@@ -39,6 +40,12 @@ export default class View {
         Array.from(newEl.attributes).forEach(attr =>
           curEl.setAttribute(attr.name, attr.value)
         );
+    });
+  }
+  addHandlerReset(handler) {
+    this._forkifyIcon.addEventListener('click', function (e) {
+      e.preventDefault();
+      handler();
     });
   }
 

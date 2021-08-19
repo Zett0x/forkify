@@ -11,6 +11,7 @@ import addRecipeView from './views/addRecipeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import recipeView from './views/recipeView.js';
+import View from './views/View.js';
 
 //const { async } = require('q');
 
@@ -136,7 +137,14 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
+const controlMainPage = () => {
+  console.log('icon clicked');
+  window.history.pushState(null, '', `#`);
+  location.reload();
+};
+
 const init = () => {
+  addRecipeView.addHandlerReset(controlMainPage);
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);

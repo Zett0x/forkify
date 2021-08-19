@@ -6,6 +6,7 @@
   justify-content: space-between;
 
   &__logo {
+    cursor: pointer;
     margin-left: 4rem;
     height: 4.6rem;
     display: block;
@@ -105,6 +106,9 @@
 }
 
 .bookmarks {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
   padding: 1rem 0;
   position: absolute;
   // right: 0;
@@ -114,8 +118,6 @@
   background-color: #fff;
   box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
 
-  visibility: hidden;
-  opacity: 0;
   transition: all 0.5s 0.2s;
 
   &__list {
@@ -138,6 +140,7 @@
 
   &:hover,
   .nav__btn--bookmarks:hover + & {
+    display: block;
     visibility: visible;
     opacity: 1;
   }
